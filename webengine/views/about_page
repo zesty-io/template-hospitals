@@ -34,6 +34,7 @@
     <div style="color:#B4653A" class="text-xs tracking-[.14em] uppercase font-semibold mb-4">{{this.page_eyebrow}}</div>
     <h1 class="font-serif font-normal text-[clamp(38px,4.8vw,58px)] leading-[1.06] tracking-tight mb-5 max-w-[760px]">{{this.page_headline}}</h1>
     <p class="text-lg leading-relaxed text-[#4A5957] max-w-[620px]">{{this.page_intro}}</p>
+    <p>This is a test paragraph</p>
   </div>
 </section>
 
