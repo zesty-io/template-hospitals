@@ -1,0 +1,103 @@
+<meta name="description" content="{{this.excerpt}}" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="{{this.title}} | {{meta.hospital_name}}" />
+<meta property="og:description" content="{{this.excerpt}}" />
+<meta property="og:image" content="{{this.featured_image.getImage()}}" />
+<meta property="og:url" content="{{this.getUrl()}}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{this.title}} | {{meta.hospital_name}}" />
+<meta name="twitter:description" content="{{this.excerpt}}" />
+<meta name="twitter:image" content="{{this.featured_image.getImage()}}" />
+
+<!-- SEO: schema.org structured data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  "headline": "{{this.title}}",
+  "description": "{{this.excerpt}}",
+  "image": "{{this.featured_image.getImage()}}",
+  "url": "{{this.getUrl()}}",
+  "datePublished": "{{this.publish_date}}",
+  "author": {
+    "@type": "Person",
+    "name": "{{this.author}}"
+  },
+  "publisher": {
+    "@type": "Hospital",
+    "name": "{{meta.hospital_name}}"
+  }
+}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  /* WYSIWYG body content — style prose elements to match the design's typography */
+  article :where(h2) { font-family: inherit; font-size: 30px; font-weight: 400; line-height: 1.3; margin-top: 44px; margin-bottom: 16px; }
+  article :where(p) { font-size: 17.5px; line-height: 1.7; color: #31403E; margin-bottom: 22px; }
+  article :where(blockquote) { margin: 36px 0; padding-left: 28px; border-left: 3px solid #B4653A; font-family: inherit; font-size: 24px; line-height: 1.3; color: #12211F; }
+</style>
+
+{{ include /components/header.html }}
+
+<section class="pt-16 pb-10">
+  <div class="max-w-[820px] mx-auto px-8">
+    <a href="/blog-page" style="color:#0B5D57" class="text-[13.5px] font-semibold mb-7 inline-block">&larr; All articles</a>
+    <div style="color:#B4653A" class="text-xs tracking-[.12em] uppercase font-semibold mb-4.5">{{this.category}}</div>
+    <h1 class="font-serif font-normal text-[clamp(34px,4.4vw,52px)] leading-[1.08] tracking-tight mb-6">{{this.title}}</h1>
+    <div class="flex flex-wrap gap-4 items-center text-sm text-[#5B6B69]">
+      <span>{{this.author}}</span>
+      <span class="w-1 h-1 rounded-full bg-[#C7CFCD]" aria-hidden="true"></span>
+      <span><time>{{this.publish_date}}</time></span>
+      <span class="w-1 h-1 rounded-full bg-[#C7CFCD]" aria-hidden="true"></span>
+      <span>{{this.read_time}}</span>
+    </div>
+  </div>
+</section>
+
+<div class="max-w-[820px] mx-auto px-8 mb-14">
+  <div class="h-[460px] relative rounded-2xl overflow-hidden">
+    <img src="{{this.featured_image.getImage()}}" alt="{{this.title}}" fetchpriority="high" decoding="async" class="w-full h-full object-cover" />
+  </div>
+</div>
+
+<article class="pb-18">
+  <div class="max-w-[820px] mx-auto px-8">
+    {{this.article_body}}
+
+    <ul class="flex flex-wrap gap-2 mt-11 pt-8 border-t border-[#E6E2D8] list-none p-0" aria-label="Article tags">
+      {{if {this.tags} != ''}}
+        {{each {this.tags} as tag}}
+        <li class="px-3.5 py-1.5 rounded-full bg-[#F7F4EE] text-[13px] text-[#5B6B69]">{{tag.label}}</li>
+        {{/each}}
+      {{/if}}
+    </ul>
+  </div>
+</article>
+
+<!-- RELATED ARTICLES -->
+<section class="pb-24 mt-5" aria-labelledby="related-articles-heading">
+  <div class="max-w-[1200px] mx-auto px-8 pt-14 border-t border-[#E6E2D8]">
+    <h2 id="related-articles-heading" class="font-serif font-normal text-3xl mb-9">Related articles</h2>
+    <ul class="grid gap-6 list-none p-0 m-0" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+      {{if {this.related_articles} != ''}}
+        {{each {this.related_articles} as post}}
+        <li>
+          <a href="{{ post.getUrl() }}" class="text-left bg-white border border-[#E6E2D8] rounded-2xl overflow-hidden flex flex-col hover:border-[#0B5D57] hover:-translate-y-0.5 transition focus:outline-none focus-visible:ring-2" style="--tw-ring-color:#0B5D57">
+            <span class="block h-[170px] relative w-full">
+              <img src="{{post.featured_image.getImage()}}" alt="{{post.title}}" loading="lazy" decoding="async" class="w-full h-full object-cover" />
+            </span>
+            <span class="flex flex-col gap-2 p-5.5">
+              <span style="color:#B4653A" class="text-[11.5px] tracking-[.11em] uppercase font-semibold">{{post.category}}</span>
+              <span class="font-serif text-xl leading-snug text-[#12211F]">{{post.title}}</span>
+              <span class="text-[12.5px] text-[#8A9694]">{{post.author}} &middot; {{post.publish_date}}</span>
+            </span>
+          </a>
+        </li>
+        {{/each}}
+      {{/if}}
+    </ul>
+  </div>
+</section>
+
+{{ include /components/footer.html }}

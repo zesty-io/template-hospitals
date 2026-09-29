@@ -1,0 +1,186 @@
+{
+    "instance_zuid": "8-868ff49cd8-r2pqtz",
+    "instance": {
+        "views": {
+            "404": {
+                "zuid": "11-e8b2eeece8-m2sr3q",
+                "type": "404",
+                "updatedAt": "2021-10-08T18:04:55Z",
+                "createdAt": "2021-10-08T18:04:55Z",
+                "lastSyncedAt": "2021-10-08T18:04:55Z"
+            },
+            "homepage": {
+                "zuid": "11-96cfebece8-gw7lsp",
+                "type": "templateset",
+                "updatedAt": "2018-08-13T22:56:07Z",
+                "createdAt": "2026-09-04T21:13:17Z",
+                "lastSyncedAt": "2026-09-04T21:13:17Z"
+            },
+            "loader": {
+                "zuid": "11-8492edece8-xdfmc2",
+                "type": "snippet",
+                "updatedAt": "2018-08-13T22:56:07Z",
+                "createdAt": "2020-05-13T07:02:24Z",
+                "lastSyncedAt": "2020-05-13T07:02:24Z"
+            },
+            "/-/block/hero_block.html": {
+                "zuid": "11-e4f9d89abf-hs6whf",
+                "type": "block",
+                "updatedAt": "2026-09-02T21:34:36Z",
+                "createdAt": "2026-09-03T21:17:57Z",
+                "lastSyncedAt": "2026-09-03T21:17:57Z"
+            },
+            "/z/layouts/layouts.json": {
+                "zuid": "11-b8918097f3-w64wc4",
+                "type": "ajax-json",
+                "updatedAt": "2026-09-02T21:36:09Z",
+                "createdAt": "2026-09-02T21:36:09Z",
+                "lastSyncedAt": "2026-09-02T21:36:09Z"
+            },
+            "/z/layouts/settings.json": {
+                "zuid": "11-9e9182d8f6-21294t",
+                "type": "ajax-json",
+                "updatedAt": "2026-09-02T21:36:10Z",
+                "createdAt": "2026-09-02T21:36:10Z",
+                "lastSyncedAt": "2026-09-02T21:36:10Z"
+            },
+            "/z/pvl/6-e0f5e4ebe8-kqwlw3.zhtml": {
+                "zuid": "11-9486a4eabb-2bdwg7",
+                "type": "ajax-json",
+                "updatedAt": "2026-09-02T21:44:54Z",
+                "createdAt": "2026-09-02T22:10:13Z",
+                "lastSyncedAt": "2026-09-02T22:10:13Z"
+            },
+            "/z/pvl/6-e0f5e4ebe8-kqwlw3.json": {
+                "zuid": "11-ee9093cbbc-vpm3fx",
+                "type": "ajax-json",
+                "updatedAt": "2026-09-02T21:44:54Z",
+                "createdAt": "2026-09-02T22:10:13Z",
+                "lastSyncedAt": "2026-09-02T22:10:13Z"
+            },
+            "/-/block/stats_block.html": {
+                "zuid": "11-8ce9c39ef9-1ntx7n",
+                "type": "block",
+                "updatedAt": "2026-09-02T21:49:55Z",
+                "createdAt": "2026-09-02T22:37:44Z",
+                "lastSyncedAt": "2026-09-02T22:37:44Z"
+            },
+            "/-/block/services_block.html": {
+                "zuid": "11-ec8ac4b9b5-xsr9vv",
+                "type": "block",
+                "updatedAt": "2026-09-02T21:53:29Z",
+                "createdAt": "2026-09-07T18:30:45Z",
+                "lastSyncedAt": "2026-09-07T18:30:45Z"
+            },
+            "/-/block/about_block.html": {
+                "zuid": "11-c2d4f5989e-g97kwv",
+                "type": "block",
+                "updatedAt": "2026-09-02T21:55:09Z",
+                "createdAt": "2026-09-03T19:35:54Z",
+                "lastSyncedAt": "2026-09-03T19:35:54Z"
+            },
+            "/-/block/why_choose_block.html": {
+                "zuid": "11-bc8defee98-t9zw6j",
+                "type": "block",
+                "updatedAt": "2026-09-02T22:00:00Z",
+                "createdAt": "2026-09-03T19:41:31Z",
+                "lastSyncedAt": "2026-09-03T19:41:31Z"
+            },
+            "/-/block/blog_block.html": {
+                "zuid": "11-eaadb6aee8-tmt6f7",
+                "type": "block",
+                "updatedAt": "2026-09-02T22:01:54Z",
+                "createdAt": "2026-09-07T18:31:23Z",
+                "lastSyncedAt": "2026-09-07T18:31:23Z"
+            },
+            "/-/block/visit_us_block.html": {
+                "zuid": "11-f88ca48bcf-b01crv",
+                "type": "block",
+                "updatedAt": "2026-09-02T22:02:59Z",
+                "createdAt": "2026-09-04T21:12:41Z",
+                "lastSyncedAt": "2026-09-04T21:12:41Z"
+            },
+            "/components/header.html": {
+                "zuid": "11-e0eda5a1cd-ngvdjm",
+                "type": "ajax-json",
+                "updatedAt": "2026-09-02T22:24:10Z",
+                "createdAt": "2026-09-07T18:20:26Z",
+                "lastSyncedAt": "2026-09-07T18:20:26Z"
+            },
+            "/components/footer.html": {
+                "zuid": "11-ae97b4e7d6-5z2f4n",
+                "type": "ajax-json",
+                "updatedAt": "2026-09-02T22:24:46Z",
+                "createdAt": "2026-09-03T21:16:33Z",
+                "lastSyncedAt": "2026-09-03T21:16:33Z"
+            },
+            "services": {
+                "zuid": "11-f0afb98dce-jz2k24",
+                "type": "pageset",
+                "updatedAt": "2026-09-03T18:59:59Z",
+                "createdAt": "2026-09-04T22:34:49Z",
+                "lastSyncedAt": "2026-09-04T22:34:49Z"
+            },
+            "blog": {
+                "zuid": "11-b8d4eea79a-tm3gpx",
+                "type": "pageset",
+                "updatedAt": "2026-09-03T20:30:38Z",
+                "createdAt": "2026-09-07T18:08:04Z",
+                "lastSyncedAt": "2026-09-07T18:08:04Z"
+            },
+            "about_page": {
+                "zuid": "11-eaa1c1c6c7-01shdb",
+                "type": "templateset",
+                "updatedAt": "2026-09-04T20:16:40Z",
+                "createdAt": "2026-09-04T21:27:35Z",
+                "lastSyncedAt": "2026-09-04T21:27:35Z"
+            },
+            "services_page": {
+                "zuid": "11-e0fea3afc8-j8pvw3",
+                "type": "templateset",
+                "updatedAt": "2026-09-04T20:57:54Z",
+                "createdAt": "2026-09-04T22:24:30Z",
+                "lastSyncedAt": "2026-09-04T22:24:30Z"
+            },
+            "/components/banner.html": {
+                "zuid": "11-a690f5f1ae-llwxwb",
+                "type": "ajax-json",
+                "updatedAt": "2026-09-04T21:11:35Z",
+                "createdAt": "2026-09-04T21:26:17Z",
+                "lastSyncedAt": "2026-09-04T21:26:17Z"
+            },
+            "blog_page": {
+                "zuid": "11-8a98f493ec-frcw8m",
+                "type": "templateset",
+                "updatedAt": "2026-09-07T17:14:48Z",
+                "createdAt": "2026-09-07T17:33:46Z",
+                "lastSyncedAt": "2026-09-07T17:33:46Z"
+            },
+            "contact_page": {
+                "zuid": "11-b0b3a4fcde-b4794r",
+                "type": "templateset",
+                "updatedAt": "2026-09-07T18:14:37Z",
+                "createdAt": "2026-09-07T18:26:19Z",
+                "lastSyncedAt": "2026-09-07T18:26:19Z"
+            }
+        },
+        "styles": {
+            "main.less": {
+                "zuid": "10-acd8c3ece8-mrphdv",
+                "type": "text/less",
+                "updatedAt": "2018-08-13T22:56:05Z",
+                "createdAt": "2022-09-22T17:55:06Z",
+                "lastSyncedAt": "2022-09-22T17:55:06Z"
+            }
+        },
+        "scripts": {
+            "main.js": {
+                "zuid": "10-d8f5c4ece8-ghsql0",
+                "type": "text/javascript",
+                "updatedAt": "2018-08-13T22:56:05Z",
+                "createdAt": "2020-05-13T06:18:26Z",
+                "lastSyncedAt": "2020-05-13T06:18:26Z"
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<section style="background:#0B5D57" class="relative min-h-[620px] flex items-end overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="{{this.hero_image.getImage()}}" alt="{{this.hero_headline}}" class="w-full h-full object-cover" />
+  </div>
+  <div class="absolute inset-0" style="background:linear-gradient(90deg,rgba(8,38,36,.88) 0%,rgba(8,38,36,.62) 45%,rgba(8,38,36,.15) 100%)"></div>
+  <div class="relative max-w-[1200px] mx-auto px-8 pt-28 pb-20 w-full">
+    <div class="max-w-[680px]">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 border border-white/35 rounded-full text-white text-xs tracking-widest uppercase mb-7">{{this.hero_eyebrow}}</div>
+      <h1 class="font-serif font-normal text-[clamp(40px,5.4vw,68px)] leading-[1.04] tracking-tight text-white mb-5">{{this.hero_headline}}</h1>
+      <p class="text-[19px] leading-relaxed text-white/85 mb-9 max-w-[520px]">{{this.tagline}}</p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/contact" style="color:#0B5D57" class="px-7 py-4 rounded-lg bg-white text-[15.5px] font-bold hover:opacity-90">{{this.hero_primary_cta}}</a>
+        <a href="/services" class="px-7 py-4 border border-white/45 rounded-lg text-white text-[15.5px] font-semibold hover:bg-white/10">{{this.hero_secondary_cta}}</a>
+      </div>
+    </div>
+  </div>
+</section>

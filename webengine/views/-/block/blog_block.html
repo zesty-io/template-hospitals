@@ -1,0 +1,26 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<section class="bg-[#F7F4EE] py-24">
+  <div class="max-w-[1200px] mx-auto px-8">
+    <div class="flex flex-wrap gap-6 items-end justify-between mb-10">
+      <h2 class="font-serif font-normal text-[clamp(28px,3.2vw,40px)] leading-tight tracking-tight m-0">{{this.headline}}</h2>
+      <a href="/blog" style="color:#0B5D57" class="text-[15px] font-semibold border-b border-[#C7CFCD] pb-1">All articles &rarr;</a>
+    </div>
+    <div class="grid gap-6" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+      {{if {this.featured_blogs} != ''}}
+        {{each {this.featured_blogs} as post}}
+        <a href="{{ post.getUrl() }}" class="text-left bg-white border border-[#E6E2D8] rounded-2xl overflow-hidden flex flex-col">
+          <span class="block h-[196px] relative w-full">
+            <img src="{{post.featured_image.getImage()}}" alt="{{post.title}}" class="w-full h-full object-cover" />
+          </span>
+          <span class="flex flex-col gap-2.5 p-6">
+            <span style="color:#B4653A" class="text-[11.5px] tracking-[.11em] uppercase font-semibold">{{post.category}}</span>
+            <span class="font-serif text-[22px] leading-snug text-[#12211F]">{{post.title}}</span>
+            <span class="text-sm leading-relaxed text-[#5B6B69]">{{post.excerpt}}</span>
+            <span class="text-[12.5px] text-[#8A9694] mt-1">{{post.author}} &middot; {{post.publish_date}}</span>
+          </span>
+        </a>
+        {{/each}}
+      {{/if}}
+    </div>
+  </div>
+</section>

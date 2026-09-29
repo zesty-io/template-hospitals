@@ -1,0 +1,18 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<section class="pb-24">
+  <div class="max-w-[1200px] mx-auto px-8 pt-24 border-t border-[#E6E2D8] grid gap-12 items-start" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+    <div>
+      <div style="color:#B4653A" class="text-xs tracking-[.14em] uppercase font-semibold mb-4">{{this.visit_us_eyebrow}}</div>
+      <h2 class="font-serif font-normal text-[34px] leading-tight mb-6">{{this.address_line_1}}</h2>
+      <div class="flex flex-col gap-3 text-[15.5px] text-[#4A5957]">
+        <div>{{this.address_line_2}}</div>
+        <div>Main line &middot; <a href="tel:{{this.main_phone}}">{{this.main_phone}}</a></div>
+        <div>Emergency &middot; <a href="tel:{{this.emergency_phone}}" class="text-[#B3261E]">{{this.emergency_phone}}</a></div>
+        <div>Email &middot; <a href="mailto:{{this.email}}">{{this.email}}</a></div>
+      </div>
+    </div>
+    <div class="h-[300px] relative rounded-2xl overflow-hidden">
+      <img src="{{this.map_image.getImage()}}" alt="Map" class="w-full h-full object-cover" />
+    </div>
+  </div>
+</section>

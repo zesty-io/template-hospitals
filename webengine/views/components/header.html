@@ -1,0 +1,64 @@
+<!-- ============ /components/header.html ============ -->
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+<style>
+  [x-cloak] { display: none !important; }
+</style>
+
+{{if {meta.show_utility_bar} != ''}}
+  {{if {meta.show_utility_bar} == true}}
+  <div class="bg-[#B3261E] text-white text-[13px] tracking-wide">
+    <div class="max-w-[1200px] mx-auto px-8 py-2.5 flex flex-wrap gap-2 sm:gap-7 items-center justify-between">
+      <div class="flex items-center gap-2.5 font-semibold">
+        <span class="w-[7px] h-[7px] rounded-full bg-white inline-block opacity-90"></span>
+        <span>24/7 Emergency</span>
+        <a href="tel:{{meta.emergency_phone}}" class="text-white underline underline-offset-2">{{meta.emergency_phone}}</a>
+      </div>
+      <div class="opacity-85 hidden sm:block">Walk-in triage open around the clock &middot; Ambulance dispatch available</div>
+    </div>
+  </div>
+  {{/if}}
+{{/if}}
+
+<header x-data="{ menuOpen: false }" class="sticky top-0 z-40 bg-[#FFFDF9]/90 backdrop-blur border-b border-[#E6E2D8]">
+  <div class="max-w-[1200px] mx-auto px-8 py-4 flex items-center gap-6">
+
+    <a href="/" class="flex items-center gap-3">
+      <span style="background:#0B5D57" class="w-10 h-10 rounded-[11px] flex items-center justify-center flex-none">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14" /></svg>
+      </span>
+      <span class="block">
+        <span class="block font-serif text-xl leading-tight text-[#12211F]">Hospital Template</span>
+        <span class="block text-[10.5px] tracking-[.14em] uppercase text-[#7A8886] mt-1">{{meta.logo_kicker}}</span>
+      </span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-8 ml-auto">
+      <a href="/" class="py-1 text-sm font-medium text-[#12211F]">Home{{if this.web.path == '/'}}<span style="display:block;height:2px;margin-top:5px;background:#0B5D57"></span>{{/if}}</a>
+      <a href="/about-page" class="py-1 text-sm font-medium text-[#12211F]">About{{if this.web.path == '/about'}}<span style="display:block;height:2px;margin-top:5px;background:#0B5D57"></span>{{/if}}</a>
+      <a href="/services-page" class="py-1 text-sm font-medium text-[#12211F]">Services{{if this.web.path == '/services'}}<span style="display:block;height:2px;margin-top:5px;background:#0B5D57"></span>{{/if}}</a>
+      <a href="/blog-page" class="py-1 text-sm font-medium text-[#12211F]">Blog{{if this.web.path == '/blog'}}<span style="display:block;height:2px;margin-top:5px;background:#0B5D57"></span>{{/if}}</a>
+      <a href="/contact-page" class="py-1 text-sm font-medium text-[#12211F]">Contact{{if this.web.path == '/contact'}}<span style="display:block;height:2px;margin-top:5px;background:#0B5D57"></span>{{/if}}</a>
+      <div class="flex items-center gap-2.5 ml-1.5">
+        <a href="{{meta.portal_url}}" target="_blank" rel="noopener" class="px-4 py-2.5 border border-[#C7CFCD] rounded-lg text-sm font-semibold text-[#12211F]">Portal Login</a>
+        <a href="{{meta.pay_url}}" target="_blank" rel="noopener" style="background:#0B5D57" class="px-6 py-2.5 rounded-lg text-white text-sm font-semibold hover:opacity-90">Pay Bill</a>
+      </div>
+    </nav>
+
+    <button @click="menuOpen = !menuOpen" class="lg:hidden ml-auto w-11 h-11 flex items-center justify-center border border-[#E6E2D8] rounded-[10px] bg-white">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#12211F" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+    </button>
+  </div>
+
+  <div x-show="menuOpen" x-cloak class="lg:hidden border-t border-[#E6E2D8] bg-[#FFFDF9] px-6 pt-3 pb-5 flex flex-col gap-0.5">
+    <a href="/" class="text-left py-3.5 px-2 text-base font-medium text-[#12211F] border-b border-[#F0EDE4]">Home</a>
+    <a href="/about" class="text-left py-3.5 px-2 text-base font-medium text-[#12211F] border-b border-[#F0EDE4]">About</a>
+    <a href="/services" class="text-left py-3.5 px-2 text-base font-medium text-[#12211F] border-b border-[#F0EDE4]">Services</a>
+    <a href="/blog-page" class="text-left py-3.5 px-2 text-base font-medium text-[#12211F] border-b border-[#F0EDE4]">Blog</a>
+    <a href="/contact-page" class="text-left py-3.5 px-2 text-base font-medium text-[#12211F] border-b border-[#F0EDE4]">Contact</a>
+    <div class="flex gap-2.5 mt-4">
+      <a href="{{meta.portal_url}}" target="_blank" rel="noopener" class="flex-1 text-center py-3.5 border border-[#C7CFCD] rounded-lg text-[15px] font-semibold text-[#12211F]">Portal Login</a>
+      <a href="{{meta.pay_url}}" target="_blank" rel="noopener" style="background:#0B5D57" class="flex-1 text-center py-3.5 rounded-lg text-white text-[15px] font-semibold">Pay Bill</a>
+    </div>
+  </div>
+</header>

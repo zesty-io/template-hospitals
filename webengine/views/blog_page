@@ -1,0 +1,77 @@
+<meta name="description" content="{{this.page_intro}}" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{this.page_headline}} | {{meta.hospital_name}}" />
+<meta property="og:description" content="{{this.page_intro}}" />
+<meta property="og:image" content="{{this.page_image.getImage()}}" />
+<meta property="og:url" content="{{this.getUrl()}}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{this.page_headline}} | {{meta.hospital_name}}" />
+<meta name="twitter:description" content="{{this.page_intro}}" />
+<meta name="twitter:image" content="{{this.page_image.getImage()}}" />
+
+<!-- SEO: schema.org structured data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "{{this.page_headline}}",
+  "description": "{{this.page_intro}}",
+  "url": "{{this.getUrl()}}",
+  "publisher": {
+    "@type": "Hospital",
+    "name": "{{meta.hospital_name}}"
+  }
+}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+
+{{ include /components/header.html }}
+
+<!-- PAGE HEADER -->
+<section class="bg-[#F7F4EE] pt-24 pb-20 border-b border-[#E6E2D8]">
+  <div class="max-w-[1200px] mx-auto px-8">
+    <div style="color:#B4653A" class="text-xs tracking-[.14em] uppercase font-semibold mb-4">{{this.page_eyebrow}}</div>
+    <h1 class="font-serif font-normal text-[clamp(38px,4.8vw,58px)] leading-[1.06] tracking-tight mb-5 max-w-[760px]">{{this.page_headline}}</h1>
+    <p class="text-lg leading-relaxed text-[#4A5957] max-w-[620px]">{{this.page_intro}}</p>
+  </div>
+</section>
+
+<!-- ARTICLES GRID + FILTER -->
+<!-- Pagination intentionally left out — no `limit=`/paging support confirmed in this Parsley version; all matching articles render -->
+<section class="pt-11 pb-24" x-data="{ cat: 'All' }" aria-label="All articles">
+  <div class="max-w-[1200px] mx-auto px-8">
+
+    <div class="flex flex-wrap gap-2.5 mb-10" role="group" aria-label="Filter articles by category">
+      <button @click="cat = 'All'" :aria-pressed="cat === 'All'" :style="cat === 'All' ? 'background:#12211F;color:#fff' : 'background:#fff;color:#31403E'" class="px-5 py-2.5 rounded-full border border-[#E6E2D8] text-sm font-medium">All</button>
+      {{if {this.blog_categories} != ''}}
+        {{each {this.blog_categories} as c}}
+        <button @click="cat = '{{c.name}}'" :aria-pressed="cat === '{{c.name}}'" :style="cat === '{{c.name}}' ? 'background:#12211F;color:#fff' : 'background:#fff;color:#31403E'" class="px-5 py-2.5 rounded-full border border-[#E6E2D8] text-sm font-medium">{{c.name}}</button>
+        {{/each}}
+      {{/if}}
+    </div>
+
+    <ul class="grid gap-6 list-none p-0 m-0" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+      {{if {blog} != ''}}
+        {{each {blog} as post}}
+        <li x-show="cat === 'All' || cat === '{{post.category}}'">
+          <a href="{{ post.getUrl() }}" class="text-left bg-white border border-[#E6E2D8] rounded-2xl overflow-hidden flex flex-col hover:border-[#0B5D57] hover:-translate-y-0.5 transition focus:outline-none focus-visible:ring-2" style="--tw-ring-color:#0B5D57">
+            <span class="block h-[196px] relative w-full">
+              <img src="{{post.featured_image.getImage()}}" alt="{{post.title}}" loading="lazy" decoding="async" class="w-full h-full object-cover" />
+            </span>
+            <span class="flex flex-col gap-2.5 p-6">
+              <span style="color:#B4653A" class="text-[11.5px] tracking-[.11em] uppercase font-semibold">{{post.category}}</span>
+              <span class="font-serif text-[22px] leading-snug text-[#12211F]">{{post.title}}</span>
+              <span class="text-sm leading-relaxed text-[#5B6B69]">{{post.excerpt}}</span>
+              <span class="text-[12.5px] text-[#8A9694] mt-1">{{post.author}} &middot; {{post.publish_date}}</span>
+            </span>
+          </a>
+        </li>
+        {{/each}}
+      {{else}}
+        <li class="text-sm text-[#8A9694] list-none">No articles published yet.</li>
+      {{/if}}
+    </ul>
+  </div>
+</section>
+
+{{ include /components/footer.html }}

@@ -1,0 +1,114 @@
+<meta name="description" content="{{this.short_description}}" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{this.title}} | {{meta.hospital_name}}" />
+<meta property="og:description" content="{{this.short_description}}" />
+<meta property="og:image" content="{{this.banner_image.getImage()}}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{this.title}} | {{meta.hospital_name}}" />
+<meta name="twitter:description" content="{{this.short_description}}" />
+<meta name="twitter:image" content="{{this.banner_image.getImage()}}" />
+
+<!-- SEO: schema.org structured data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  "name": "{{this.title}} | {{meta.hospital_name}}",
+  "description": "{{this.short_description}}",
+  "medicalSpecialty": "{{this.category}}",
+  "telephone": "{{meta.main_phone}}",
+  "parentOrganization": {
+    "@type": "Hospital",
+    "name": "{{meta.hospital_name}}"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{meta.address_line_1}}",
+    "addressLocality": "{{meta.address_line_2}}"
+  }
+}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+
+{{ include /components/header.html }}
+
+<!-- BANNER -->
+<section style="background:#0B5D57" class="relative min-h-[400px] flex items-end overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="{{this.banner_image.getImage()}}" alt="{{this.title}}" fetchpriority="high" decoding="async" class="w-full h-full object-cover" />
+  </div>
+  <div class="absolute inset-0" style="background:linear-gradient(0deg,rgba(8,38,36,.9) 0%,rgba(8,38,36,.35) 70%)"></div>
+  <div class="relative max-w-[1200px] mx-auto px-8 pt-20 pb-14 w-full">
+    <a href="/services-page" class="text-[13.5px] font-semibold text-white/80 mb-5.5 inline-block">&larr; All services</a>
+    <div class="text-xs tracking-[.14em] uppercase text-white/70 font-semibold mb-3.5">{{this.category}}</div>
+    <h1 class="font-serif font-normal text-[clamp(36px,4.6vw,56px)] leading-[1.06] tracking-tight text-white max-w-[760px]">{{this.title}}</h1>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<section class="py-20">
+  <div class="max-w-[1200px] mx-auto px-8 grid gap-16 items-start" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+    <div class="max-w-[680px]">
+      <p class="text-xl leading-relaxed text-[#12211F] mb-7">{{this.short_description}}</p>
+
+      <!-- If `body` is a WYSIWYG field, render it directly instead of looping -->
+      {{this.body}}
+
+      <h2 class="font-serif font-normal text-[26px] mt-10 mb-4.5">What we treat</h2>
+      <ul class="flex flex-col gap-3 list-none p-0 m-0">
+        {{if {this.treats} != ''}}
+          {{each {this.treats} as item}}
+          <li class="flex gap-3 items-start text-[15.5px] leading-relaxed text-[#4A5957]">
+            <span class="w-1.5 h-1.5 rounded-full mt-2.5 flex-none" style="background:#B4653A" aria-hidden="true"></span>
+            <span>{{item.label}}</span>
+          </li>
+          {{/each}}
+        {{/if}}
+      </ul>
+    </div>
+
+    <aside class="bg-[#F7F4EE] rounded-2xl p-8" aria-labelledby="dept-info-heading">
+      <h2 id="dept-info-heading" class="font-serif text-[22px] mb-5">Department info</h2>
+      <dl class="flex flex-col gap-4.5 text-[14.5px] text-[#4A5957] m-0">
+        <div>
+          <dt class="text-[11.5px] tracking-widest uppercase text-[#8A9694] mb-1.5 font-normal">Hours</dt>
+          <dd class="m-0">{{this.hours}}</dd>
+        </div>
+        <div>
+          <dt class="text-[11.5px] tracking-widest uppercase text-[#8A9694] mb-1.5 font-normal">Location</dt>
+          <dd class="m-0">{{this.location}}</dd>
+        </div>
+        <div>
+          <dt class="text-[11.5px] tracking-widest uppercase text-[#8A9694] mb-1.5 font-normal">Direct line</dt>
+          <dd class="m-0"><a href="tel:{{meta.main_phone}}">{{meta.main_phone}}</a></dd>
+        </div>
+      </dl>
+      <a href="/" target="_blank" style="background:#0B5D57" class="block w-full mt-6.5 py-3.5 text-center rounded-lg text-white text-[15px] font-semibold hover:opacity-90">Request an appointment</a>
+    </aside>
+  </div>
+</section>
+
+<!-- RELATED SERVICES -->
+<section class="pb-24" aria-labelledby="related-services-heading">
+  <div class="max-w-[1200px] mx-auto px-8 pt-14 border-t border-[#E6E2D8]">
+    <h2 id="related-services-heading" class="font-serif font-normal text-3xl mb-9">Related services</h2>
+    <ul class="grid gap-5 list-none p-0 m-0" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+      {{if {this.related_services} != ''}}
+        {{each {this.related_services} as svc}}
+        <li>
+          <a href="{{ svc.getUrl() }}" class="text-left bg-white border border-[#E6E2D8] rounded-2xl p-7 pb-6 flex flex-col gap-3.5 hover:border-[#0B5D57] hover:-translate-y-0.5 transition focus:outline-none focus-visible:ring-2" style="--tw-ring-color:#0B5D57">
+            <span class="w-[46px] h-[46px] rounded-xl bg-[#EDF3F1] flex items-center justify-center" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B5D57" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="{{svc.icon_path}}" /></svg>
+            </span>
+            <span class="font-serif text-[23px] leading-tight text-[#12211F]">{{svc.title}}</span>
+            <span class="text-[14.5px] leading-relaxed text-[#5B6B69]">{{svc.short_description}}</span>
+            <span style="color:#0B5D57" class="text-[13.5px] font-semibold mt-0.5">Learn more &rarr;</span>
+          </a>
+        </li>
+        {{/each}}
+      {{/if}}
+    </ul>
+  </div>
+</section>
+
+{{ include /components/footer.html }}

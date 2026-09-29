@@ -1,0 +1,12 @@
+<section class="bg-[#12211F] text-white">
+  <div class="max-w-[1200px] mx-auto px-8 py-20 grid gap-10 items-center" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+    <div>
+      <h2 class="font-serif font-normal text-[clamp(30px,3.4vw,42px)] leading-tight tracking-tight mb-3">{{this.headline}}</h2>
+      <p class="text-[16.5px] leading-relaxed text-white/70 max-w-[480px]">{{this.body}}</p>
+    </div>
+    <div class="flex flex-wrap gap-3 md:justify-end">
+      <a href="{{meta.portal_url}}" target="_blank" rel="noopener" class="px-7 py-4 border border-white/40 rounded-lg text-white text-[15.5px] font-semibold hover:bg-white/10">Portal Login</a>
+      <a href="{{meta.pay_url}}" target="_blank" rel="noopener" class="px-7 py-4 rounded-lg bg-white text-[#12211F] text-[15.5px] font-bold hover:opacity-90">Pay Bill</a>
+    </div>
+  </div>
+</section>

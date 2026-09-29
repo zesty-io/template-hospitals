@@ -1,0 +1,73 @@
+<!-- ============ /components/footer.html ============ -->
+<!-- Relies on --hw-primary / --hw-secondary already declared in header.html's :root block -->
+
+<div class="bg-[#F7F4EE] border-t border-[#E6E2D8]">
+  <footer>
+    <div class="max-w-[1200px] mx-auto px-8 pt-16 pb-10 grid gap-12" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-[38px] h-[38px] rounded-[10px] flex items-center justify-center flex-none" style="background:var(--hw-primary,#0B5D57)">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14" /></svg>
+          </span>
+          <span class="font-serif text-lg">Hospital Template</span>
+        </div>
+        <p class="text-sm leading-relaxed text-[#5B6B69] max-w-[280px]">A 180-bed community hospital with emergency, surgical, and family services under one roof — open every hour of the year.</p>
+        <div class="flex gap-2.5 mt-6">
+          <a href="#" class="w-[38px] h-[38px] rounded-[10px] border border-[#DDD8CC] flex items-center justify-center hover:border-brand">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#12211F"><path d="M13.5 21v-8h2.7l.4-3h-3.1V8.3c0-.9.3-1.5 1.6-1.5h1.6V4.1c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1V10H7.5v3h2.3v8h3.7z" /></svg>
+          </a>
+          <a href="#" class="w-[38px] h-[38px] rounded-[10px] border border-[#DDD8CC] flex items-center justify-center hover:border-brand">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#12211F" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5" /><circle cx="12" cy="12" r="3.8" /><circle cx="17" cy="7" r="1" fill="#12211F" stroke="none" /></svg>
+          </a>
+          <a href="#" class="w-[38px] h-[38px] rounded-[10px] border border-[#DDD8CC] flex items-center justify-center hover:border-brand">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#12211F"><path d="M4.5 8.8h3.2V21H4.5V8.8zm1.6-5a1.9 1.9 0 1 1 0 3.8 1.9 1.9 0 0 1 0-3.8zM10 8.8h3v1.7c.5-.9 1.7-1.9 3.5-1.9 2.6 0 3.9 1.7 3.9 4.8V21h-3.2v-6.9c0-1.6-.6-2.5-1.9-2.5-1.1 0-1.9.7-2.2 1.5-.1.2-.1.6-.1.9V21H10V8.8z" /></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <div class="text-[11.5px] tracking-[.12em] uppercase text-[#8A9694] font-semibold mb-4">Quick links</div>
+        <div class="flex flex-col gap-3 items-start">
+          <a href="/" class="text-sm text-[#31403E] hover:text-brand">Home</a>
+          <a href="/about" class="text-sm text-[#31403E] hover:text-brand">About</a>
+          <a href="/services" class="text-sm text-[#31403E] hover:text-brand">Services</a>
+          <a href="/blog" class="text-sm text-[#31403E] hover:text-brand">Blog</a>
+          <a href="/contact" class="text-sm text-[#31403E] hover:text-brand">Contact</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="text-[11.5px] tracking-[.12em] uppercase text-[#8A9694] font-semibold mb-4">Contact</div>
+        <div class="flex flex-col gap-3 text-sm leading-relaxed text-[#31403E]">
+          <div>Lorem ipsum dolor}<br />Lorem ipsum dolor</div>
+          <div>Main &middot; <a href="tel:(02) 8911-2400">(02) 8911-2400</a></div>
+          <div>Emergency &middot; <a href="tel:(02) 8911-0000" class="text-[#B3261E]">(02) 8911-0000</a></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="text-[11.5px] tracking-[.12em] uppercase text-[#8A9694] font-semibold mb-4">Patients</div>
+        <div class="flex flex-col gap-3 text-sm text-[#31403E]">
+          <a href="{{meta.portal_url}}" target="_blank" rel="noopener">Patient Portal</a>
+          <a href="{{meta.pay_url}}" target="_blank" rel="noopener">Pay a Bill</a>
+          <a href="#">Medical Records</a>
+          <a href="#">Insurance &amp; Billing</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="border-t border-[#E6E2D8]">
+      <div class="max-w-[1200px] mx-auto px-8 py-5 flex flex-wrap gap-3 justify-between text-[13px] text-[#8A9694]">
+        <div>&copy; 2026 Content One. All rights reserved.</div>
+        <div class="flex gap-6">
+          <a href="#" class="text-[#8A9694]">Privacy Policy</a>
+          <a href="#" class="text-[#8A9694]">Patient Rights</a>
+          <a href="#" class="text-[#8A9694]">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+

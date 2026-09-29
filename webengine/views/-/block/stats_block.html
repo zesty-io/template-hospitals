@@ -1,0 +1,15 @@
+<script src="https://cdn.tailwindcss.com"></script>
+
+
+<section style="background:#0B5D57" class="text-white">
+  <div class="max-w-[1200px] mx-auto px-8 py-11 grid gap-8" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
+    {{if {stats} != ''}}
+      {{each {stats} as stat}}
+      <div>
+        <div class="font-serif text-[42px] leading-none tracking-tight">{{stat.value}}</div>
+        <div class="text-[13.5px] text-white/75 mt-2 tracking-wide">{{stat.label}}</div>
+      </div>
+      {{/each}}
+    {{/if}}
+  </div>
+</section>

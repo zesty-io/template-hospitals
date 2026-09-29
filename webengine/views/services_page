@@ -1,0 +1,76 @@
+<meta name="description" content="{{this.page_intro}}" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{this.page_headline}} | {{meta.hospital_name}}" />
+<meta property="og:description" content="{{this.page_intro}}" />
+<meta property="og:image" content="{{this.page_image.getImage()}}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{this.page_headline}} | {{meta.hospital_name}}" />
+<meta name="twitter:description" content="{{this.page_intro}}" />
+<meta name="twitter:image" content="{{this.page_image.getImage()}}" />
+
+<!-- SEO: schema.org structured data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Hospital",
+  "name": "{{meta.hospital_name}}",
+  "description": "{{this.page_intro}}",
+  "telephone": "{{meta.main_phone}}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{meta.address_line_1}}",
+    "addressLocality": "{{meta.address_line_2}}"
+  },
+  "email": "{{meta.email}}"
+}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+
+{{ include /components/header.html }}
+
+<!-- PAGE HEADER -->
+<section class="bg-[#F7F4EE] pt-24 pb-20 border-b border-[#E6E2D8]">
+  <div class="max-w-[1200px] mx-auto px-8">
+    <div style="color:#B4653A" class="text-xs tracking-[.14em] uppercase font-semibold mb-4">{{this.page_eyebrow}}</div>
+    <h1 class="font-serif font-normal text-[clamp(38px,4.8vw,58px)] leading-[1.06] tracking-tight mb-5 max-w-[760px]">{{this.page_headline}}</h1>
+    <p class="text-lg leading-relaxed text-[#4A5957] max-w-[620px]">{{this.page_intro}}</p>
+  </div>
+</section>
+
+<!-- SERVICES GRID + FILTER -->
+<section class="pt-11 pb-24" x-data="{ cat: 'All' }" aria-label="All services">
+  <div class="max-w-[1200px] mx-auto px-8">
+
+    <div class="flex flex-wrap gap-2.5 mb-10" role="group" aria-label="Filter services by category">
+      <button @click="cat = 'All'" :aria-pressed="cat === 'All'" :style="cat === 'All' ? 'background:#12211F;color:#fff' : 'background:#fff;color:#31403E'" class="px-5 py-2.5 rounded-full border border-[#E6E2D8] text-sm font-medium">All</button>
+      {{if {this.service_categories} != ''}}
+        {{each {this.service_categories} as c}}
+        <button @click="cat = '{{c.name}}'" :aria-pressed="cat === '{{c.name}}'" :style="cat === '{{c.name}}' ? 'background:#12211F;color:#fff' : 'background:#fff;color:#31403E'" class="px-5 py-2.5 rounded-full border border-[#E6E2D8] text-sm font-medium">{{c.name}}</button>
+        {{/each}}
+      {{/if}}
+    </div>
+
+    <ul class="grid gap-5 list-none p-0 m-0" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+      {{if {services} != ''}}
+        {{each {services} as svc}}
+        <li x-show="cat === 'All' || cat === '{{svc.category}}'">
+          <a href="{{ svc.getUrl() }}" class="text-left bg-white border border-[#E6E2D8] rounded-2xl p-7 pb-6 flex flex-col gap-3.5 hover:border-[#0B5D57] hover:-translate-y-0.5 transition focus:outline-none focus-visible:ring-2" style="--tw-ring-color:#0B5D57">
+            <span class="w-[46px] h-[46px] rounded-xl bg-[#EDF3F1] flex items-center justify-center" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B5D57" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="{{svc.icon_path}}" /></svg>
+            </span>
+            <span class="text-[11.5px] tracking-[.11em] uppercase text-[#8A9694] font-semibold">{{svc.category}}</span>
+            <span class="font-serif text-[23px] leading-tight text-[#12211F]">{{svc.title}}</span>
+            <span class="text-[14.5px] leading-relaxed text-[#5B6B69]">{{svc.short_description}}</span>
+            <span style="color:#0B5D57" class="text-[13.5px] font-semibold mt-0.5">Learn more &rarr;</span>
+          </a>
+        </li>
+        {{/each}}
+      {{else}}
+        <li class="text-sm text-[#8A9694] list-none">No services listed yet.</li>
+      {{/if}}
+    </ul>
+  </div>
+</section>
+
+{{ include /components/footer.html }}
+

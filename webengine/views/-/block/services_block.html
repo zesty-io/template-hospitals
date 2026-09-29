@@ -1,0 +1,28 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<section class="py-24">
+  <div class="max-w-[1200px] mx-auto px-8">
+    <div class="flex flex-wrap gap-6 items-end justify-between mb-11">
+      <div class="max-w-[560px]">
+        <div style="color:#B4653A" class="text-xs tracking-[.14em] uppercase font-semibold mb-3.5">{{this.services_eyebrow}}</div>
+        <h2 class="font-serif font-normal text-[clamp(30px,3.6vw,44px)] leading-tight tracking-tight m-0">{{this.services_headline}}</h2>
+      </div>
+
+    </div>
+    <div class="grid gap-5" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+      {{if {services} != ''}}
+        {{each {services} as svc}}
+        <a href="{{ svc.getUrl() }}" class="text-left bg-white border border-[#E6E2D8] rounded-2xl p-7 pb-6 flex flex-col gap-3.5 hover:-translate-y-0.5 transition focus:outline-none focus-visible:ring-2" style="--tw-ring-color:#0B5D57">
+          <span class="w-[46px] h-[46px] rounded-xl bg-[#EDF3F1] flex items-center justify-center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B5D57" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="{{svc.icon_path}}" /></svg>
+          </span>
+          <span class="font-serif text-[23px] leading-tight text-[#12211F]">{{svc.title}}</span>
+          <span class="text-[14.5px] leading-relaxed text-[#5B6B69]">{{svc.short_description}}</span>
+          <span style="color:#0B5D57" class="text-[13.5px] font-semibold mt-0.5">Learn more &rarr;</span>
+        </a>
+        {{/each}}
+      {{else}}
+        <p class="text-sm text-[#8A9694]">Services coming soon.</p>
+      {{/if}}
+    </div>
+  </div>
+</section>

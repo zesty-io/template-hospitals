@@ -1,0 +1,140 @@
+<meta name="description" content="{{this.page_intro}}" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{this.page_headline}} | {{meta.hospital_name}}" />
+<meta property="og:description" content="{{this.page_intro}}" />
+<meta property="og:image" content="{{this.page_image.getImage()}}" />
+<meta property="og:url" content="{{this.getUrl()}}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{this.page_headline}} | {{meta.hospital_name}}" />
+<meta name="twitter:description" content="{{this.page_intro}}" />
+<meta name="twitter:image" content="{{this.page_image.getImage()}}" />
+
+<!-- SEO: schema.org structured data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Hospital",
+  "name": "{{meta.hospital_name}}",
+  "description": "{{this.page_intro}}",
+  "url": "{{this.getUrl()}}",
+  "telephone": "{{meta.main_phone}}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{meta.address_line_1}}",
+    "addressLocality": "{{meta.address_line_2}}"
+  },
+  "email": "{{meta.email}}"
+}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  [x-cloak] { display: none !important; }
+</style>
+
+{{ include /components/header.html }}
+
+<!-- PAGE HEADER -->
+<section class="bg-[#F7F4EE] pt-24 pb-20 border-b border-[#E6E2D8]">
+  <div class="max-w-[1200px] mx-auto px-8">
+    <div style="color:#B4653A" class="text-xs tracking-[.14em] uppercase font-semibold mb-4">{{this.page_eyebrow}}</div>
+    <h1 class="font-serif font-normal text-[clamp(38px,4.8vw,58px)] leading-[1.06] tracking-tight mb-5 max-w-[760px]">{{this.page_headline}}</h1>
+    <p class="text-lg leading-relaxed text-[#4A5957] max-w-[620px]">For medical emergencies call <a href="tel:{{meta.emergency_phone}}" style="color:#B3261E" class="font-semibold">{{meta.emergency_phone}}</a> or go directly to our emergency entrance.</p>
+  </div>
+</section>
+
+<!-- FORM + DETAILS -->
+<section class="py-20">
+  <div class="max-w-[1200px] mx-auto px-8 grid gap-16 items-start" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr))">
+
+    <!-- FORM -->
+    <div x-data="{ sent: false, form: { name: '', email: '', phone: '', message: '' } }">
+      <h2 class="font-serif font-normal text-3xl mb-6.5">Send us a message</h2>
+
+      <div x-show="sent" x-cloak role="status" class="bg-[#EDF3F1] border border-[#CDE3DF] rounded-2xl p-8">
+        <div class="font-serif text-2xl mb-2.5">Thank you — message received</div>
+        <p class="text-sm leading-relaxed text-[#4A5957] mb-5">A member of our patient services team will reply within one business day.</p>
+        <button @click="sent = false" class="bg-transparent border border-[#C7CFCD] rounded-lg px-5 py-3 text-sm font-semibold text-[#12211F]">Send another</button>
+      </div>
+
+      <form x-show="!sent" x-cloak @submit.prevent="/* TODO: wire real submit target, then: */ sent = true" class="flex flex-col gap-5 mt-3" aria-label="Contact form">
+        <label class="flex flex-col gap-2.5 text-[13.5px] font-semibold text-[#31403E]">Full name
+          <input x-model="form.name" type="text" required placeholder="Juan dela Cruz" class="p-3.5 border border-[#DDD8CC] rounded-lg text-[15px] bg-white text-[#12211F] focus:outline-none focus:border-[#12211F]" />
+        </label>
+        <div class="grid gap-5" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+          <label class="flex flex-col gap-2.5 text-[13.5px] font-semibold text-[#31403E]">Email
+            <input x-model="form.email" type="email" required placeholder="you@email.com" class="p-3.5 border border-[#DDD8CC] rounded-lg text-[15px] bg-white text-[#12211F] focus:outline-none focus:border-[#12211F]" />
+          </label>
+          <label class="flex flex-col gap-2.5 text-[13.5px] font-semibold text-[#31403E]">Phone
+            <input x-model="form.phone" type="tel" placeholder="+63 900 000 0000" class="p-3.5 border border-[#DDD8CC] rounded-lg text-[15px] bg-white text-[#12211F] focus:outline-none focus:border-[#12211F]" />
+          </label>
+        </div>
+        <label class="flex flex-col gap-2.5 text-[13.5px] font-semibold text-[#31403E]">Message
+          <textarea x-model="form.message" rows="5" required placeholder="How can we help?" class="p-3.5 border border-[#DDD8CC] rounded-lg text-[15px] bg-white text-[#12211F] resize-y focus:outline-none focus:border-[#12211F]"></textarea>
+        </label>
+        <button type="submit" style="background:#0B5D57" class="self-start px-7 py-4 rounded-lg text-white text-[15px] font-semibold hover:opacity-90 mt-1.5">Send message</button>
+        <p class="text-xs text-[#8A9694] mt-1">{{this.form_note}}</p>
+      </form>
+    </div>
+
+    <!-- DETAILS -->
+    <div class="flex flex-col gap-8">
+      <div>
+        <div class="text-[11.5px] tracking-[.12em] uppercase text-[#8A9694] font-semibold mb-3">Address</div>
+        <div class="text-[16.5px] leading-relaxed text-[#31403E]">{{meta.address_line_1}}<br />{{meta.address_line_2}}</div>
+      </div>
+      <div>
+        <div class="text-[11.5px] tracking-[.12em] uppercase text-[#8A9694] font-semibold mb-3">Phone &amp; email</div>
+        <div class="flex flex-col gap-2 text-base text-[#31403E]">
+          <div>Main &middot; <a href="tel:{{meta.main_phone}}">{{meta.main_phone}}</a></div>
+          <div>Emergency &middot; <a href="tel:{{meta.emergency_phone}}" style="color:#B3261E">{{meta.emergency_phone}}</a></div>
+          <div><a href="mailto:{{meta.email}}">{{meta.email}}</a></div>
+        </div>
+      </div>
+      <div>
+        <div class="text-[11.5px] tracking-[.12em] uppercase text-[#8A9694] font-semibold mb-3">Hours</div>
+        <div class="flex flex-col gap-2 text-[15.5px] text-[#31403E]">
+          <div>{{this.hours_emergency}}</div>
+          <div>{{this.hours_outpatient}}</div>
+          <div>{{this.hours_visiting}}</div>
+        </div>
+      </div>
+      <div class="h-[260px] relative rounded-2xl overflow-hidden">
+        <img src="{{this.map_image.getImage()}}" alt="Map" loading="lazy" decoding="async" class="w-full h-full object-cover" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPARTMENT NUMBERS -->
+<section class="pb-24" aria-labelledby="departments-heading">
+  <style>
+    .dept-table tr + tr { border-top: 1px solid #F0EDE4; }
+  </style>
+  <div class="max-w-[1200px] mx-auto px-8 pt-14 border-t border-[#E6E2D8]">
+    <h2 id="departments-heading" class="font-serif font-normal text-3xl mb-8">{{this.departments_headline}}</h2>
+    <table class="dept-table w-full border border-[#E6E2D8] rounded-2xl bg-white" style="border-collapse:separate;border-spacing:0">
+      <caption class="sr-only">Department contact numbers and hours</caption>
+      <thead class="sr-only">
+        <tr>
+          <th scope="col">Department</th>
+          <th scope="col">Hours</th>
+          <th scope="col">Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{if {this.departments} != ''}}
+          {{each {this.departments} as d}}
+          <tr>
+            <th scope="row" class="text-left font-semibold text-[#12211F] px-6 py-5 text-[15px]">{{d.name}}</th>
+            <td class="text-[#5B6B69] px-6 py-5 text-[15px]">{{d.hours}}</td>
+            <td class="px-6 py-5 text-[15px]"><a href="tel:{{d.phone}}">{{d.phone}}</a></td>
+          </tr>
+          {{/each}}
+        {{/if}}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+{{ include /components/footer.html }}

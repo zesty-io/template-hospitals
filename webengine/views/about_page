@@ -1,0 +1,110 @@
+<meta name="description" content="{{this.page_intro}}" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{this.page_headline}} | {{meta.hospital_name}}" />
+<meta property="og:description" content="{{this.page_intro}}" />
+<meta property="og:image" content="{{this.page_image.getImage()}}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{this.page_headline}} | {{meta.hospital_name}}" />
+<meta name="twitter:description" content="{{this.page_intro}}" />
+<meta name="twitter:image" content="{{this.page_image.getImage()}}" />
+
+<!-- SEO: schema.org structured data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Hospital",
+  "name": "{{meta.hospital_name}}",
+  "description": "{{this.page_intro}}",
+  "telephone": "{{meta.main_phone}}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{meta.address_line_1}}",
+    "addressLocality": "{{meta.address_line_2}}"
+  },
+  "email": "{{meta.email}}"
+}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+
+{{ include /components/header.html }}
+
+<!-- PAGE HEADER -->
+<section class="bg-[#F7F4EE] pt-24 pb-20 border-b border-[#E6E2D8]">
+  <div class="max-w-[1200px] mx-auto px-8">
+    <div style="color:#B4653A" class="text-xs tracking-[.14em] uppercase font-semibold mb-4">{{this.page_eyebrow}}</div>
+    <h1 class="font-serif font-normal text-[clamp(38px,4.8vw,58px)] leading-[1.06] tracking-tight mb-5 max-w-[760px]">{{this.page_headline}}</h1>
+    <p class="text-lg leading-relaxed text-[#4A5957] max-w-[620px]">{{this.page_intro}}</p>
+  </div>
+</section>
+
+<!-- MISSION / VISION -->
+<section class="py-24" aria-label="Mission and vision">
+  <div class="max-w-[1200px] mx-auto px-8 grid gap-14" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+    <div>
+      <h2 class="font-serif font-normal text-3xl leading-tight mb-4.5">{{this.mission_headline}}</h2>
+      <p class="text-[16.5px] leading-relaxed text-[#4A5957]">{{this.mission_body}}</p>
+    </div>
+    <div>
+      <h2 class="font-serif font-normal text-3xl leading-tight mb-4.5">{{this.vision_headline}}</h2>
+      <p class="text-[16.5px] leading-relaxed text-[#4A5957]">{{this.vision_body}}</p>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="pb-24" aria-labelledby="timeline-heading">
+  <div class="max-w-[1200px] mx-auto px-8">
+    <h2 id="timeline-heading" class="font-serif font-normal text-[clamp(28px,3.2vw,40px)] leading-tight mb-11">{{this.timeline_headline}}</h2>
+    <ol class="flex flex-col list-none p-0 m-0">
+      {{if {this.timeline} != ''}}
+        {{each {this.timeline} as t}}
+        <li class="grid gap-8 py-6.5 border-t border-[#E6E2D8] items-start" style="grid-template-columns:minmax(90px,140px) 1fr">
+          <div style="color:#0B5D57" class="font-serif text-[28px] leading-none" aria-hidden="true">{{t.year}}</div>
+          <div>
+            <h3 class="text-[17px] font-semibold mb-1.5"><span class="sr-only">{{t.year}} — </span>{{t.title}}</h3>
+            <p class="text-[15px] leading-relaxed text-[#5B6B69] max-w-[640px] m-0">{{t.body}}</p>
+          </div>
+        </li>
+        {{/each}}
+      {{/if}}
+    </ol>
+  </div>
+</section>
+
+{{ include /components/stats-bar.html }}
+
+<!-- LEADERSHIP -->
+<section class="py-24" aria-labelledby="leadership-heading">
+  <div class="max-w-[1200px] mx-auto px-8">
+    <h2 id="leadership-heading" class="font-serif font-normal text-[clamp(28px,3.2vw,40px)] leading-tight mb-11">{{this.leadership_headline}}</h2>
+    <ul class="grid gap-7 list-none p-0 m-0" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+      {{if {this.leaders} != ''}}
+        {{each {this.leaders} as p}}
+        <li>
+          <div class="h-[270px] relative mb-4 rounded-2xl overflow-hidden">
+            <img src="{{p.photo.getImage()}}" alt="Portrait of {{p.name}}, {{p.role}}" loading="lazy" decoding="async" width="220" height="270" class="w-full h-full object-cover" />
+          </div>
+          <div class="text-[17px] font-semibold">{{p.name}}</div>
+          <div class="text-sm text-[#5B6B69] mt-1.5">{{p.role}}</div>
+        </li>
+        {{/each}}
+      {{/if}}
+    </ul>
+  </div>
+</section>
+
+<!-- ACCREDITATIONS -->
+<section class="pb-24" aria-labelledby="accreditations-heading">
+  <div class="max-w-[1200px] mx-auto px-8 pt-14 border-t border-[#E6E2D8]">
+    <h2 id="accreditations-heading" class="text-xs tracking-[.14em] uppercase text-[#8A9694] font-semibold mb-7">{{this.accreditations_headline}}</h2>
+    <ul class="grid gap-5 list-none p-0 m-0" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
+      {{if {this.accreditations} != ''}}
+        {{each {this.accreditations} as a}}
+        <li class="h-[88px] border border-[#E6E2D8] rounded-xl flex items-center justify-center px-4 text-center text-[12.5px] tracking-wide uppercase text-[#8A9694] bg-white">{{a.name}}</li>
+        {{/each}}
+      {{/if}}
+    </ul>
+  </div>
+</section>
+
+{{ include /components/footer.html }}

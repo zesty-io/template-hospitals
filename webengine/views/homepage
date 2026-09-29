@@ -1,0 +1,5 @@
+{{ include /components/header.html }}
+{{ this.autolayout(auto) }}
+{{ include /components/banner.html }}
+{{ include /components/footer.html }}
+goodbye world!!!!

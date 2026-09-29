@@ -1,0 +1,9 @@
+<div className={styles.pvlRoot}>
+	{{block('/-/block/hero_block.html?variant=7-e8de9e8ddd-128013')}}
+	{{block('/-/block/stats_block.html?variant=7-b6c089fe9a-2v5czx')}}
+	{{block('/-/block/services_block.html?variant=7-fe94c89188-cb4m4x')}}
+	{{block('/-/block/about_block.html?variant=7-82d985bdc4-sdx8xx')}}
+	{{block('/-/block/why_choose_block.html?variant=7-e8efbc8d9e-63vsxd')}}
+	{{block('/-/block/blog_block.html?variant=7-c6d1bca8ef-qpj1r9')}}
+	{{block('/-/block/visit_us_block.html?variant=7-ea9395e4d2-kqqtn9')}}
+</div>
