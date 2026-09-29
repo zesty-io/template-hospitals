@@ -2,3 +2,4 @@
 {{ this.autolayout(auto) }}
 {{ include /components/banner.html }}
 {{ include /components/footer.html }}
+<p>This is a test paragraph</p>
