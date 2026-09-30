@@ -1,7 +1,9 @@
 {{ include /components/header.html }}
 {{ this.autolayout(auto) }}
-<div>
-    <p>This is a test paragraph.</p>
-</div>
+<section class="bg-[#12211F] text-white">
+    <div class="max-w-[1200px] mx-auto px-8 py-20 grid gap-10 items-center" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+        <p>This is a test paragraph.</p>
+    <div>
+</section>
 {{ include /components/banner.html }}
 {{ include /components/footer.html }}
